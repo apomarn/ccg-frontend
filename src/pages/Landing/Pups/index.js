@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+fetch('http://localhost:5000/allpets')
+  .then(data => data.json())
+  .then(pets => {
+    console.log(pets)
+  })
+
 const Container = styled.div`
   background-color: gray;
   display: flex;
