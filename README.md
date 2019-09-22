@@ -5,3 +5,5 @@
 * MongoDB as database.
 * Styled-Components library was used for styling.
 * Filters are dynamic.
+* Deployed in Heroku.  (https://ccg-frontend.herokuapp.com)
+
