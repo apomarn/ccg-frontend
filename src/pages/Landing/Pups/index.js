@@ -138,7 +138,7 @@ class AvailablePups extends Component {
       }
     }
 
-    if (newfilter === 0) {
+    if (newfilter.length === 0) {
       return (
         <NoMatch>
           <p>Sorry, there are no matches, try again!</p>
