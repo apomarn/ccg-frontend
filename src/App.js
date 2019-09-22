@@ -1,13 +1,10 @@
-import React from 'react'
-import './App.css'
+import React, { Component } from 'react'
 import Landing from './pages/Landing'
 
-function App() {
-  return (
-    <div>
-      <Landing />
-    </div>
-  )
+class App extends Component {
+  render() {
+    return <Landing />
+  }
 }
 
 export default App

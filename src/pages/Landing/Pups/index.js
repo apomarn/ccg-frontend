@@ -1,20 +1,9 @@
 import React, { Component } from 'react'
-import {
-  Container,
-  Header,
-  SecondHeader,
-  FilterLogo,
-  Description,
-  FilterOptions,
-  Form,
-  Options,
-  DropDown,
-  PetContainer,
-  NoMatch,
-  Wrapper
-} from './styles'
+import { Title, Subtitle, NoMatch, Wrapper } from './styles'
+import Pet from '../Pet'
+import Filters from '../Filters'
 
-class AvailablePups extends Component {
+class Pups extends Component {
   constructor(props) {
     super(props)
 
@@ -31,114 +20,35 @@ class AvailablePups extends Component {
   }
 
   onChangeType(e) {
-    this.setState({
-      type: e.target.value
-    })
+    this.setState({ type: e.target.value })
   }
 
   onChangeBreed(e) {
-    this.setState({
-      breed: e.target.value
-    })
+    this.setState({ breed: e.target.value })
   }
 
   onChangeGender(e) {
-    this.setState({
-      gender: e.target.value
-    })
-  }
-
-  filterPetTypes() {
-    const types = this.state.allPets.map(pet => {
-      return pet.type
-    })
-
-    const unduplicatedTypes = []
-
-    types.forEach(type => {
-      if (!unduplicatedTypes.includes(type)) {
-        unduplicatedTypes.push(type)
-      }
-    })
-
-    return (
-      <>
-        {unduplicatedTypes.map(type => {
-          return (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          )
-        })}
-      </>
-    )
-  }
-
-  filterPetBreed() {
-    const breeds = this.state.allPets.map(pet => {
-      return pet.breed
-    })
-
-    const unduplicatedBreed = []
-
-    breeds.forEach(breed => {
-      if (!unduplicatedBreed.includes(breed)) {
-        unduplicatedBreed.push(breed)
-      }
-    })
-
-    return (
-      <>
-        {unduplicatedBreed.map(breed => {
-          return (
-            <option key={breed} value={breed}>
-              {breed}
-            </option>
-          )
-        })}
-      </>
-    )
-  }
-
-  filterPetGender() {
-    const genders = this.state.allPets.map(pet => {
-      return pet.gender
-    })
-
-    const unduplicatedGender = []
-
-    genders.forEach(gender => {
-      if (!unduplicatedGender.includes(gender)) {
-        unduplicatedGender.push(gender)
-      }
-    })
-
-    return (
-      <>
-        {unduplicatedGender.map(gender => {
-          return (
-            <option key={gender} value={gender}>
-              {gender}
-            </option>
-          )
-        })}
-      </>
-    )
+    this.setState({ gender: e.target.value })
   }
 
   showPets() {
-    var newfilter = []
-    for (var i = 0; i < this.state.allPets.length; i++) {
-      if (this.state.allPets[i].gender === this.state.gender || this.state.gender === 'All') {
-        if (this.state.allPets[i].breed === this.state.breed || this.state.breed === 'All') {
-          if (this.state.allPets[i].type === this.state.type || this.state.type === 'All') {
-            newfilter.push(this.state.allPets[i])
-          }
-        }
+    const { allPets, type, breed, gender } = this.state
+
+    const matchingPets = []
+
+    for (var i = 0; i < allPets.length; i++) {
+      const pet = allPets[i]
+
+      const foundType = ['All', pet.type].includes(type)
+      const foundBreed = ['All', pet.breed].includes(breed)
+      const foundGender = ['All', pet.gender].includes(gender)
+
+      if (foundType && foundBreed && foundGender) {
+        matchingPets.push(pet)
       }
     }
 
-    if (newfilter.length === 0) {
+    if (matchingPets.length === 0) {
       return (
         <NoMatch>
           <p>Sorry, there are no matches, try again!</p>
@@ -148,30 +58,9 @@ class AvailablePups extends Component {
 
     return (
       <Wrapper>
-        {newfilter.map(pet => {
-          return (
-            <div key={pet._id} style={{ margin: '10px 0' }}>
-              <img src={pet.image} alt={pet.name} height='250' width='250' />
-              <PetContainer>
-                <p style={{ margin: '0', paddingTop: '10px' }}>
-                  <strong>Name: </strong> {pet.name}
-                </p>
-                <p>
-                  <strong>Type: </strong>
-                  {pet.type}
-                </p>
-                <p>
-                  <strong>Breed: </strong>
-                  {pet.breed}
-                </p>
-                <p>
-                  <strong>Gender: </strong>
-                  {pet.gender}
-                </p>
-              </PetContainer>
-            </div>
-          )
-        })}
+        {matchingPets.map(pet => (
+          <Pet {...pet} />
+        ))}
       </Wrapper>
     )
   }
@@ -179,48 +68,38 @@ class AvailablePups extends Component {
   render() {
     return (
       <div>
-        <Header>AVAILABLE</Header>
-        <SecondHeader>PUPPIES</SecondHeader>
-        <Container>
-          <FilterLogo src='../images/filter.jpg' alt='filter-logo' />
-          <Description>Filter By:</Description>
-          <FilterOptions>
-            <Form>
-              <Options>PET TYPE</Options>
-
-              <DropDown onChange={this.onChangeType} value={this.state.type}>
-                <option value='All'>All</option>
-                {this.filterPetTypes()}
-              </DropDown>
-
-              <Options>BREED</Options>
-              <DropDown onChange={this.onChangeBreed} value={this.state.breed}>
-                <option value='All'>All</option>
-                {this.filterPetBreed()}
-              </DropDown>
-              <Options>GENDER</Options>
-              <DropDown onChange={this.onChangeGender} value={this.state.gender}>
-                <option value='All'>All</option>
-                {this.filterPetGender()}
-              </DropDown>
-            </Form>
-          </FilterOptions>
-        </Container>
+        <Title>Available</Title>
+        <Subtitle>Puppies</Subtitle>
+        <Filters
+          allPets={this.state.allPets}
+          type={this.state.type}
+          breed={this.state.breed}
+          gender={this.state.gender}
+          onChangeType={this.onChangeType}
+          onChangeBreed={this.onChangeBreed}
+          onChangeGender={this.onChangeGender}
+        />
         {this.showPets()}
       </div>
     )
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/allpets')
+    var url
+
+    if (process.env.NODE_ENV === 'development') {
+      url = 'http://localhost:5000'
+    } else {
+      url = 'https://ccg-server.herokuapp.com'
+    }
+
+    fetch(`${url}/allpets`)
       .then(data => data.json())
       .then(pets => {
-        this.setState({
-          allPets: pets
-        })
+        this.setState({ allPets: pets })
       })
       .catch(err => console.log(err))
   }
 }
 
-export default AvailablePups
+export default Pups

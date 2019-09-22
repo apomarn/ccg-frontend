@@ -1,22 +1,19 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import Hero from './Hero'
-import AvailablePups from './Pups'
+import Pups from './Pups'
 import Footer from '../../components/Footer'
+import { Container } from './styles'
 
-const Container = styled.div`
-  margin: 20px 100px;
-`
 class Landing extends Component {
   render() {
     return (
-      <div>
+      <>
         <Hero />
         <Container>
-          <AvailablePups />
+          <Pups />
           <Footer />
         </Container>
-      </div>
+      </>
     )
   }
 }
