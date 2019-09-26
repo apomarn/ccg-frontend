@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
+import { Body, Image, BreedName } from './styles'
 
 class Biography extends Component {
   render() {
-    const { image, breed, description, history, color } = this.pros
+    const { image, breed, description, history, color } = this.props
     return (
-      <div>
-        <img src={image} key={breed} alt={breed} />
+      <Body>
+        <Image src={image} key={breed} alt={breed} />
 
         <div>
-          <h1>{breed}</h1>
+          <BreedName>{breed}</BreedName>
           <div></div>
           <p>Description:</p>
           <p>{description}</p>
@@ -17,7 +18,7 @@ class Biography extends Component {
           <p>Color:</p>
           <p>{color}</p>
         </div>
-      </div>
+      </Body>
     )
   }
 }
