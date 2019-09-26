@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   display: flex;
@@ -6,7 +7,7 @@ export const Container = styled.div`
   padding: 10px;
 `
 
-export const List = styled.a`
+export const List = styled(Link)`
   color: white;
   font-size: 16px;
   font-weight: 700;

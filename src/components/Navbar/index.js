@@ -5,15 +5,9 @@ class Navbar extends Component {
   render() {
     return (
       <Container>
-        <Logo src="../../images/logo.png" alt="logo"></Logo>
-        <List href="#">AVAILABLE PUPPIES</List>
-        <List href="#">PERKS</List>
-        <List href="#">BREEDS</List>
-        <List href="#">PRODUCTS</List>
-        <List href="#">CARES</List>
-        <List href="#">FINANCING</List>
-        <List href="#">ABOUT</List>
-        <List href="#">CONTACT</List>
+        <Logo src='../../images/logo.png' alt='logo'></Logo>
+        <List to='/'>AVAILABLE PUPPIES</List>
+        <List to='/breeds'>BREEDS</List>
       </Container>
     )
   }
