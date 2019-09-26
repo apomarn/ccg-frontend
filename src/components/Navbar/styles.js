@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px;
 `
 
 export const List = styled(Link)`
   color: white;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
   margin-top: 10px;
   text-decoration: none;

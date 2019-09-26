@@ -9,7 +9,7 @@ class Information extends Component {
   render() {
     return (
       <div>
-        <Hero />
+        <Hero></Hero>
         <Body>
           <Biography {...this.props} />
           <Behavior {...this.props} />
