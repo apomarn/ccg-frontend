@@ -1,6 +1,6 @@
-# CCG-Pets Challenge
+# CCG-Pets
 
-* Single page. ( MERN )
+* MERN Stack
 * Used full React advantages by creating Components to make the code more readable.
 * MongoDB as database.
 * Styled-Components library was used for styling.
