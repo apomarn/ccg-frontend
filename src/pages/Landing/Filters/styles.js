@@ -31,8 +31,16 @@ export const Form = styled.form`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-left: 100px;
+  margin-left: 20px;
   flex-wrap: wrap;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 100px;
+    flex-wrap: wrap;
+  }
 `
 
 export const Options = styled.p`
@@ -42,4 +50,5 @@ export const Options = styled.p`
 export const DropDown = styled.select`
   width: 100px;
   margin-right: 30px;
+  background-color: white;
 `

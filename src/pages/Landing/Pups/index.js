@@ -67,7 +67,7 @@ class Pups extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Title>Available</Title>
         <Subtitle>Puppies</Subtitle>
         <Filters
@@ -80,7 +80,7 @@ class Pups extends Component {
           onChangeGender={this.onChangeGender}
         />
         {this.showPets()}
-      </div>
+      </>
     )
   }
 

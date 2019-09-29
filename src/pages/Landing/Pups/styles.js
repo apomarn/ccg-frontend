@@ -6,6 +6,7 @@ export const Title = styled.h3`
   margin: 0;
   font-size: 40px;
   text-transform: uppercase;
+  margin-left: 10px;
 `
 
 export const Subtitle = styled.h1`
@@ -15,6 +16,7 @@ export const Subtitle = styled.h1`
   font-size: 70px;
   margin-bottom: 20px;
   text-transform: uppercase;
+  margin-left: 10px;
 `
 
 export const NoMatch = styled.div`
