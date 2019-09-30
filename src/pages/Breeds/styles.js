@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
 export const Body = styled.div`
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  @media screen and (min-width: 768px) {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
 `
 
 export const Title = styled.p`
@@ -19,7 +23,11 @@ export const Title = styled.p`
   margin-left: 50px;
 `
 export const DescriptionContainer = styled.div`
-  margin: 40px 0;
+  margin: 110px 0;
+
+  @media screen and (min-width: 768px) {
+    margin: 40px 0;
+  }
 `
 
 export const Description = styled.p`
@@ -28,15 +36,25 @@ export const Description = styled.p`
   padding-top: 20px;
   margin: 0;
   text-indent: 25px;
-  margin-left: 40px;
+  margin-left: 10px;
   color: gray;
+  @media screen and (min-width: 768px) {
+    margin-left: 40px;
+  }
 `
 
 export const AllPets = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  flex-direction: column;
   background-color: offwhite;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: offwhite;
+  }
 `

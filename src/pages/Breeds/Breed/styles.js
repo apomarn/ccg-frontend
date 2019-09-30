@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 export const Container = styled(Link)`
   width: 250px;
   text-decoration: none;
+  margin-bottom: 20px;
 `
 
 export const Image = styled.img`

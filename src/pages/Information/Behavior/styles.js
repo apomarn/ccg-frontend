@@ -31,9 +31,9 @@ export const ProgressDiv = styled.div`
   width: 100%;
 `
 export const Progress = styled.div`
-  height: 20px;
+  height: 30px;
   background-color: lightblue;
   text-align: center;
-  padding: 5px;
   color: white;
+  line-height: 30px;
 `

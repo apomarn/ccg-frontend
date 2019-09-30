@@ -5,14 +5,27 @@ export const Body = styled.div`
   display: flex;
   padding-left: 15px;
   padding-right: 15px;
-  margin: 0 60px;
-  flex-direction: row;
+  margin: 0;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 60px;
+    flex-direction: row;
+  }
 `
 
 export const Image = styled.img`
   margin-top: 20px;
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: auto;
+  @media screen and (min-width: 768px) {
+    margin-top: 20px;
+    width: 350px;
+    height: 350px;
+  }
 `
 
 export const BreedName = styled.p`
