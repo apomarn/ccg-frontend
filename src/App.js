@@ -8,22 +8,22 @@ import Information from './pages/Information'
 class App extends Component {
   render() {
     return (
-      <>
+      <div>
         <Route exact path='/' component={Landing} key='/' />
         <Route exact path='/breeds' component={Breeds} key='/breeds' />
         {allBreeds.map(breed => {
           return (
-            <>
+            <div>
               <Route
                 exact
                 path={`/breeds/${breed.breed}`}
                 render={() => <Information {...breed} />}
                 key={breed.breed}
               />
-            </>
+            </div>
           )
         })}
-      </>
+      </div>
     )
   }
 }
