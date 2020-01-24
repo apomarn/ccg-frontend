@@ -64,23 +64,23 @@ class Filters extends Component {
 
     return (
       <Container>
-        <FilterLogo src="../images/filter.jpg" alt="filter-logo" />
+        <FilterLogo src='../images/filter.jpg' alt='filter-logo' />
         <Description>Filter By:</Description>
         <FilterOptions>
           <Form>
             <Options>PET TYPE</Options>
             <DropDown onChange={onChangeType} value={type}>
-              <option value="All">All</option>
+              <option value='All'>All</option>
               {this.filterPetTypes()}
             </DropDown>
             <Options>BREED</Options>
             <DropDown onChange={onChangeBreed} value={breed}>
-              <option value="All">All</option>
+              <option value='All'>All</option>
               {this.filterPetBreed()}
             </DropDown>
             <Options>GENDER</Options>
             <DropDown onChange={onChangeGender} value={gender}>
-              <option value="All">All</option>
+              <option value='All'>All</option>
               {this.filterPetGender()}
             </DropDown>
           </Form>

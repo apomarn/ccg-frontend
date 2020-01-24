@@ -8,7 +8,7 @@ import Information from './pages/Information'
 class App extends Component {
   render() {
     return (
-      <div>
+      <>
         <Route exact path='/' component={Landing} key='/' />
         <Route exact path='/breeds' component={Breeds} key='/breeds' />
         {allBreeds.map(breed => {
@@ -23,7 +23,7 @@ class App extends Component {
             </div>
           )
         })}
-      </div>
+      </>
     )
   }
 }
