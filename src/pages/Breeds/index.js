@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-import { allBreeds } from '../../data'
 import Hero from '../Landing/Hero'
 import Breed from './Breed'
 import { Title, Body, Description, DescriptionContainer, AllPets } from './styles'
 import Footer from '../../components/Footer'
 
 class Breeds extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      allBreeds: []
+    }
+  }
   render() {
     return (
       <div>
@@ -23,7 +29,7 @@ class Breeds extends Component {
             </Description>
           </DescriptionContainer>
           <AllPets>
-            {allBreeds.map(breed => {
+            {this.state.allBreeds.map(breed => {
               return <Breed {...breed} key={breed.breed} />
             })}
           </AllPets>
@@ -31,6 +37,23 @@ class Breeds extends Component {
         <Footer />
       </div>
     )
+  }
+
+  componentDidMount() {
+    var url
+
+    if (process.env.NODE_ENV === 'development') {
+      url = 'http://localhost:5000'
+    } else {
+      url = 'https://ccg-server.herokuapp.com'
+    }
+
+    fetch(`${url}/allbreeds`)
+      .then(data => data.json())
+      .then(breeds => {
+        this.setState({ allBreeds: breeds })
+      })
+      .catch(err => console.log(err))
   }
 }
 
