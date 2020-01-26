@@ -10,14 +10,13 @@ class IncludePup extends Component {
   constructor(props) {
     super(props)
 
-    this.initialState = {
+    this.state = {
       image: '',
       name: '',
       type: '',
       breed: '',
       gender: ''
     }
-    this.state = this.initialState
 
     this.onImageChange = this.onImageChange.bind(this)
     this.onNameChange = this.onNameChange.bind(this)
@@ -47,10 +46,22 @@ class IncludePup extends Component {
   }
 
   onPupSubmit(e) {
-    this.props.onCreate(this.state)
-
-    this.setState(this.initialState)
-    axios.post('http://localhost:5000/allbreeds', this.state).then(data => data.json())
+    e.preventDefault()
+    const newPup = {
+      image: this.state.image,
+      name: this.state.name,
+      type: this.state.type,
+      breed: this.state.breed,
+      gender: this.state.gender
+    }
+    axios.post('http://localhost:5000/allpets', newPup).then(res => console.log(res.data))
+    // this.setState({
+    //   image: '',
+    //   name: '',
+    //   type: '',
+    //   breed: '',
+    //   gender: ''
+    // })
   }
 
   render() {
@@ -60,19 +71,47 @@ class IncludePup extends Component {
         <div>
           <form>
             <p>Image:</p>
-            <input value={this.state.image} onChange={this.onImageChange}></input>
+            <input type='text' value={this.state.image} onChange={this.onImageChange}></input>
             <p>Name:</p>
             <input type='text' value={this.state.name} onChange={this.onNameChange}></input>
             <p>Type:</p>
-            <input type='radio' name='animalType' value={this.state.type} onChange={this.onTypeChange} /> Dog
+            <input
+              type='radio'
+              name='animalType'
+              value='Dog'
+              checked={this.state.type === 'Dog'}
+              onChange={this.onTypeChange}
+            />{' '}
+            Dog
             <br></br>
-            <input type='radio' name='animalType' value={this.state.type} onChange={this.onTypeChange} /> Cat
+            <input
+              type='radio'
+              name='animalType'
+              value='Cat'
+              checked={this.state.type === 'Cat'}
+              onChange={this.onTypeChange}
+            />{' '}
+            Cat
             <p>Breed:</p>
-            <input></input>
+            <input type='text' name='breed' value={this.state.breed} onChange={this.onBreedChange}></input>
             <p>Gender:</p>
-            <input type='radio' name='gender' value={this.state.gender} onChange={this.onGenderChange} checked /> Male
+            <input
+              type='radio'
+              name='gender'
+              value='Male'
+              checked={this.state.gender === 'Male'}
+              onChange={this.onGenderChange}
+            />{' '}
+            Male
             <br></br>
-            <input type='radio' name='gender' value={this.state.gender} onChange={this.onGenderChange} /> Female
+            <input
+              type='radio'
+              name='gender'
+              value='Female'
+              checked={this.state.gender === 'Female'}
+              onChange={this.onGenderChange}
+            />{' '}
+            Female
             <br></br>
             <button type='submit' onClick={this.onPupSubmit}>
               Submit
