@@ -1,39 +1,13 @@
 import React, { Component } from 'react'
 import Hero from '../Landing/Hero'
-import styled from 'styled-components'
-
-const PupContainer = styled.div`
-  background-color: pink;
-`
+import IncludePup from './IncludePup'
 
 class Include extends Component {
   render() {
     return (
       <div>
         <Hero />
-        <PupContainer>
-          <p>Include a new available pup</p>
-          <div>
-            <form>
-              <p>Image:</p>
-              <input></input>
-              <p>Name:</p>
-              <input type='text'></input>
-              <p>Type:</p>
-              <input type='radio' name='animalType' value='Dog' checked /> Dog
-              <br></br>
-              <input type='radio' name='animalType' value='Cat' /> Cat
-              <p>Breed:</p>
-              <input></input>
-              <p>Type:</p>
-              <input type='radio' name='gender' value='Male' checked /> Male
-              <br></br>
-              <input type='radio' name='gender' value='Female' /> Female
-              <br></br>
-              <button type='submit'>Submit</button>
-            </form>
-          </div>
-        </PupContainer>
+        <IncludePup />
         <div>
           <p>Include a new breed</p>
           <div>
