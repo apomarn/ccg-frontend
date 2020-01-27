@@ -59,7 +59,7 @@ class Pups extends Component {
     return (
       <Wrapper>
         {matchingPets.map(pet => (
-          <Pet {...pet} key={pet.image} />
+          <Pet {...pet} key={pet.id} />
         ))}
       </Wrapper>
     )

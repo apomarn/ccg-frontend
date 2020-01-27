@@ -11,7 +11,7 @@ class IncludePup extends Component {
     super(props)
 
     this.state = {
-      image: '',
+      image: undefined,
       name: '',
       type: '',
       breed: '',
@@ -23,6 +23,7 @@ class IncludePup extends Component {
     this.onTypeChange = this.onTypeChange.bind(this)
     this.onBreedChange = this.onBreedChange.bind(this)
     this.onGenderChange = this.onGenderChange.bind(this)
+    this.onPupSubmit = this.onPupSubmit.bind(this)
   }
 
   onImageChange(e) {
@@ -54,14 +55,17 @@ class IncludePup extends Component {
       breed: this.state.breed,
       gender: this.state.gender
     }
+
+    console.log(newPup)
+
     axios.post('http://localhost:5000/allpets', newPup).then(res => console.log(res.data))
-    // this.setState({
-    //   image: '',
-    //   name: '',
-    //   type: '',
-    //   breed: '',
-    //   gender: ''
-    // })
+    this.setState({
+      image: undefined,
+      name: '',
+      type: '',
+      breed: '',
+      gender: ''
+    })
   }
 
   render() {
