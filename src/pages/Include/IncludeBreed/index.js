@@ -13,18 +13,18 @@ class IncludeBreed extends Component {
       color: '',
       temperament: '',
       adaptability: {
-        apartment: '',
-        owners: '',
+        apartment: 0,
+        owners: 0,
         alone: '',
-        weather: '',
-        friendly: ''
+        weather: 0,
+        friendly: 0
       },
       exercise: {
-        energy: '',
-        exercise: '',
-        playfulness: ''
+        energy: 0,
+        exercise: 0,
+        playfulness: 0
       },
-      trainability: '',
+      trainability: 0,
       barking: ''
     }
 
@@ -75,7 +75,7 @@ class IncludeBreed extends Component {
     this.setState({ alone: e.target.value })
   }
   onWeatherChange(e) {
-    this.setState({ Wwather: e.target.value })
+    this.setState({ weather: e.target.value })
   }
   onFriendlyChange(e) {
     this.setState({ friendly: e.target.value })
@@ -106,16 +106,16 @@ class IncludeBreed extends Component {
       color: this.state.color,
       temperament: this.state.temperament,
       adaptability: {
-        apartment: this.state.apartment,
-        owners: this.state.owners,
-        alone: this.state.alone,
-        weather: this.state.weather,
-        friendly: this.state.friendly
+        apartment: this.state.adaptability.apartment,
+        owners: this.state.adaptability.owners,
+        alone: this.state.adaptability.alone,
+        weather: this.state.adaptability.weather,
+        friendly: this.state.adaptability.friendly
       },
       exercise: {
-        energy: this.state.energy,
-        exercise: this.state.exercise,
-        playfulness: this.state.playfulness
+        energy: this.state.exercise.energy,
+        exercise: this.state.exercise.exercise,
+        playfulness: this.state.exercise.playfulness
       },
       trainability: this.state.trainability,
       barking: this.state.barking
@@ -166,28 +166,82 @@ class IncludeBreed extends Component {
               <div>
                 <p>Adaptability</p>
                 <p>Apartment</p>
-                <input type='text' value={this.state.apartment} onChange={this.onApartmentChange}></input>
+                <input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.apartment}
+                  onChange={this.onApartmentChange}
+                ></input>
                 <p>Owners</p>
-                <input type='text' value={this.state.owners} onChange={this.onOwnersChange}></input>
+                <input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.owners}
+                  onChange={this.onOwnersChange}
+                ></input>
                 <p>Alone</p>
-                <input type='text' value={this.state.alone} onChange={this.onAloneChange}></input>
+                <input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.alone}
+                  onChange={this.onAloneChange}
+                ></input>
                 <p>Weather</p>
-                <input type='text' value={this.state.weather} onChange={this.onWeatherChange}></input>
+                <input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.apartmentweather}
+                  onChange={this.onWeatherChange}
+                ></input>
                 <p>Friendly</p>
-                <input type='text' value={this.state.friendly} onChange={this.onFriendlyChange}></input>
+                <input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.friendly}
+                  onChange={this.onFriendlyChange}
+                ></input>
               </div>
               <div>
                 <p>Exercise</p>
                 <p>Energy</p>
-                <input type='text' value={this.state.energy} onChange={this.onEnergyChange}></input>
+                <input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.exercise.energy}
+                  onChange={this.onEnergyChange}
+                ></input>
                 <p>Exercise</p>
-                <input type='text' value={this.state.exercise} onChange={this.onExerciseChange}></input>
+                <input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.exercise.exercise}
+                  onChange={this.onExerciseChange}
+                ></input>
                 <p>Playfylness</p>
-                <input type='text' value={this.state.playfylness} onChange={this.onPlayfylnessChange}></input>
+                <input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.exercise.playfylness}
+                  onChange={this.onPlayfylnessChange}
+                ></input>
               </div>
             </div>
             <p>Trainability:</p>
-            <input type='text' value={this.state.trainability} onChange={this.onTrainabilityChange}></input>
+            <input
+              type='number'
+              min='0'
+              max='100'
+              value={this.state.trainability}
+              onChange={this.onTrainabilityChange}
+            ></input>
             <p>Barking:</p>
             <input type='text' value={this.state.barking} onChange={this.onBarkingChange}></input>
             <br></br>
