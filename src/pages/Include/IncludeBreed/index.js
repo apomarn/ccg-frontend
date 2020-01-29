@@ -66,28 +66,28 @@ class IncludeBreed extends Component {
     this.setState({ temperament: e.target.value })
   }
   onApartmentChange(e) {
-    this.setState({ apartment: e.target.value })
+    this.setState({ adaptability: { apartment: e.target.value } })
   }
   onOwnersChange(e) {
-    this.setState({ owners: e.target.value })
+    this.setState({ adaptability: { owners: e.target.value } })
   }
   onAloneChange(e) {
-    this.setState({ alone: e.target.value })
+    this.setState({ adaptability: { alone: e.target.value } })
   }
   onWeatherChange(e) {
-    this.setState({ weather: e.target.value })
+    this.setState({ adaptability: { weather: e.target.value } })
   }
   onFriendlyChange(e) {
-    this.setState({ friendly: e.target.value })
+    this.setState({ adaptability: { friendly: e.target.value } })
   }
   onEnergyChange(e) {
-    this.setState({ energy: e.target.value })
+    this.setState({ exercise: { energy: e.target.value } })
   }
   onExerciseChange(e) {
-    this.setState({ exercise: e.target.value })
+    this.setState({ exercise: { exercise: e.target.value } })
   }
   onPlayfulnessChange(e) {
-    this.setState({ playfulness: e.target.value })
+    this.setState({ exercise: { playfulness: e.target.value } })
   }
   onTrainabilityChange(e) {
     this.setState({ trainability: e.target.value })
@@ -130,18 +130,18 @@ class IncludeBreed extends Component {
       color: '',
       temperament: '',
       adaptability: {
-        apartment: '',
-        owners: '',
+        apartment: 0,
+        owners: 0,
         alone: '',
-        weather: '',
-        friendly: ''
+        weather: 0,
+        friendly: 0
       },
       exercise: {
-        energy: '',
-        exercise: '',
-        playfulness: ''
+        energy: 0,
+        exercise: 0,
+        playfulness: 0
       },
-      trainability: '',
+      trainability: 0,
       barking: ''
     })
   }
@@ -229,8 +229,8 @@ class IncludeBreed extends Component {
                   type='number'
                   min='0'
                   max='100'
-                  value={this.state.exercise.playfylness}
-                  onChange={this.onPlayfylnessChange}
+                  value={this.state.exercise.playfulness}
+                  onChange={this.onPlayfulnessChange}
                 ></input>
               </div>
             </div>
