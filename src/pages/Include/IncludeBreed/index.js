@@ -15,7 +15,7 @@ class IncludeBreed extends Component {
       adaptability: {
         apartment: 0,
         owners: 0,
-        alone: '',
+        alone: 0,
         weather: 0,
         friendly: 0
       },
@@ -45,6 +45,24 @@ class IncludeBreed extends Component {
     this.onTrainabilityChange = this.onTrainabilityChange.bind(this)
     this.onBarkingChange = this.onBarkingChange.bind(this)
     this.onBreedSubmit = this.onBreedSubmit.bind(this)
+
+    this.adaptabilityChange = (oldState, type, value) => {
+      return {
+        adaptability: {
+          ...oldState.adaptability,
+          [type]: value
+        }
+      }
+    }
+
+    this.exerciseChange = (oldState, type, value) => {
+      return {
+        exercise: {
+          ...oldState.exercise,
+          [type]: value
+        }
+      }
+    }
   }
 
   onImageChange(e) {
@@ -66,28 +84,36 @@ class IncludeBreed extends Component {
     this.setState({ temperament: e.target.value })
   }
   onApartmentChange(e) {
-    this.setState({ adaptability: { apartment: e.target.value } })
+    const value = e.target.value
+    this.setState(oldState => this.adaptabilityChange(oldState, 'apartment', value))
   }
   onOwnersChange(e) {
-    this.setState({ adaptability: { owners: e.target.value } })
+    const value = e.target.value
+    this.setState(oldState => this.adaptabilityChange(oldState, 'owners', value))
   }
   onAloneChange(e) {
-    this.setState({ adaptability: { alone: e.target.value } })
+    const value = e.target.value
+    this.setState(oldState => this.adaptabilityChange(oldState, 'alone', value))
   }
   onWeatherChange(e) {
-    this.setState({ adaptability: { weather: e.target.value } })
+    const value = e.target.value
+    this.setState(oldState => this.adaptabilityChange(oldState, 'weather', value))
   }
   onFriendlyChange(e) {
-    this.setState({ adaptability: { friendly: e.target.value } })
+    const value = e.target.value
+    this.setState(oldState => this.adaptabilityChange(oldState, 'friendly', value))
   }
   onEnergyChange(e) {
-    this.setState({ exercise: { energy: e.target.value } })
+    const value = e.target.value
+    this.setState(oldState => this.exerciseChange(oldState, 'energy', value))
   }
   onExerciseChange(e) {
-    this.setState({ exercise: { exercise: e.target.value } })
+    const value = e.target.value
+    this.setState(oldState => this.exerciseChange(oldState, 'exercise', value))
   }
   onPlayfulnessChange(e) {
-    this.setState({ exercise: { playfulness: e.target.value } })
+    const value = e.target.value
+    this.setState(oldState => this.exerciseChange(oldState, 'playfulness', value))
   }
   onTrainabilityChange(e) {
     this.setState({ trainability: e.target.value })
@@ -132,7 +158,7 @@ class IncludeBreed extends Component {
       adaptability: {
         apartment: 0,
         owners: 0,
-        alone: '',
+        alone: 0,
         weather: 0,
         friendly: 0
       },
@@ -158,6 +184,8 @@ class IncludeBreed extends Component {
             <input type='text' value={this.state.breed} onChange={this.onBreedChange}></input>
             <p>Description:</p>
             <input type='text' value={this.state.description} onChange={this.onDescriptionChange}></input>
+            <p>History:</p>
+            <input type='text' value={this.state.history} onChange={this.onHistoryChange}></input>
             <p>Color:</p>
             <input type='text' value={this.state.color} onChange={this.onColorChange}></input>
             <p>Temperament:</p>

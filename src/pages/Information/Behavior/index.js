@@ -18,7 +18,7 @@ class Behavior extends Component {
             <Title>Adaptability</Title>
             <Description>Adaptability to apartment living</Description>
             <ProgressDiv>
-              <Progress style={{ width: `${adaptability.apartment}` }}>{adaptability.apartment}</Progress>
+              <Progress style={{ width: `${adaptability.apartment}` }}>{adaptability.apartment} px</Progress>
             </ProgressDiv>
             <Description>Good for novice owners</Description>
             <ProgressDiv>
