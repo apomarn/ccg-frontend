@@ -1,47 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import styled from 'styled-components'
-
-const BreedContainer = styled.div`
-  background-color: lightBlue;
-  width: 40%;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 30px;
-`
-
-const Header = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 20px;
-`
-const SubContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-`
-const SubHeader = styled.p`
-  font-size: 16px;
-  font-weight: bold;
-`
-const Input = styled.input`
-  width: 60%;
-  height: 20px;
-  padding-left: 10px;
-  text-align: center;
-  border-radius: 10px;
-`
-const Button = styled.button`
-  background-color: blue;
-  height: 35px;
-  width: 100%
-  text-align: center;
-  color: white;
-  font-weight: 700;
-  font-size: 24px;
-  border-radius: 20px;
-  margin-top: 20px
-`
+import { BreedContainer, Header, SubContainer, SubHeader, Input, Button } from './styles'
 
 class IncludeBreed extends Component {
   constructor(props) {
