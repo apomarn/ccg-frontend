@@ -20,7 +20,7 @@ export const Body = styled.div`
 export const Image = styled.img`
   margin-top: 20px;
   width: 100%;
-  height: auto;
+  height: 250px;
   @media screen and (min-width: 768px) {
     margin-top: 20px;
     width: 350px;

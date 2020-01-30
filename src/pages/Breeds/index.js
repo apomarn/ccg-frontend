@@ -30,6 +30,7 @@ class Breeds extends Component {
           </DescriptionContainer>
           <AllPets>
             {this.state.allBreeds.map(breed => {
+              console.log(this.state.allBreeds)
               return <Breed {...breed} key={breed.breed} />
             })}
           </AllPets>
