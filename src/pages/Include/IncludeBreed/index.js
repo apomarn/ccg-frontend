@@ -1,5 +1,47 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const BreedContainer = styled.div`
+  background-color: lightBlue;
+  width: 40%;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 30px;
+`
+
+const Header = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 20px;
+`
+const SubContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
+const SubHeader = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+`
+const Input = styled.input`
+  width: 60%;
+  height: 20px;
+  padding-left: 10px;
+  text-align: center;
+  border-radius: 10px;
+`
+const Button = styled.button`
+  background-color: blue;
+  height: 35px;
+  width: 100%
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  border-radius: 20px;
+  margin-top: 20px
+`
 
 class IncludeBreed extends Component {
   constructor(props) {
@@ -174,111 +216,113 @@ class IncludeBreed extends Component {
 
   render() {
     return (
-      <div>
-        <p>Include a new breed</p>
+      <BreedContainer>
+        <Header>Include a new breed!</Header>
         <div>
           <form>
-            <p>Image:</p>
-            <input type='text' value={this.state.image} onChange={this.onImageChange}></input>
-            <p>Breed:</p>
-            <input type='text' value={this.state.breed} onChange={this.onBreedChange}></input>
-            <p>Description:</p>
-            <input type='text' value={this.state.description} onChange={this.onDescriptionChange}></input>
-            <p>History:</p>
-            <input type='text' value={this.state.history} onChange={this.onHistoryChange}></input>
-            <p>Color:</p>
-            <input type='text' value={this.state.color} onChange={this.onColorChange}></input>
-            <p>Temperament:</p>
-            <input type='text' value={this.state.temperament} onChange={this.onTemperamentChange}></input>
-            <div>
-              <div>
-                <p>Adaptability</p>
-                <p>Apartment</p>
-                <input
-                  type='number'
-                  min='0'
-                  max='100'
-                  value={this.state.adaptability.apartment}
-                  onChange={this.onApartmentChange}
-                ></input>
-                <p>Owners</p>
-                <input
-                  type='number'
-                  min='0'
-                  max='100'
-                  value={this.state.adaptability.owners}
-                  onChange={this.onOwnersChange}
-                ></input>
-                <p>Alone</p>
-                <input
-                  type='number'
-                  min='0'
-                  max='100'
-                  value={this.state.adaptability.alone}
-                  onChange={this.onAloneChange}
-                ></input>
-                <p>Weather</p>
-                <input
-                  type='number'
-                  min='0'
-                  max='100'
-                  value={this.state.adaptability.apartmentweather}
-                  onChange={this.onWeatherChange}
-                ></input>
-                <p>Friendly</p>
-                <input
-                  type='number'
-                  min='0'
-                  max='100'
-                  value={this.state.adaptability.friendly}
-                  onChange={this.onFriendlyChange}
-                ></input>
-              </div>
-              <div>
-                <p>Exercise</p>
-                <p>Energy</p>
-                <input
-                  type='number'
-                  min='0'
-                  max='100'
-                  value={this.state.exercise.energy}
-                  onChange={this.onEnergyChange}
-                ></input>
-                <p>Exercise</p>
-                <input
-                  type='number'
-                  min='0'
-                  max='100'
-                  value={this.state.exercise.exercise}
-                  onChange={this.onExerciseChange}
-                ></input>
-                <p>Playfylness</p>
-                <input
-                  type='number'
-                  min='0'
-                  max='100'
-                  value={this.state.exercise.playfulness}
-                  onChange={this.onPlayfulnessChange}
-                ></input>
-              </div>
-            </div>
-            <p>Trainability:</p>
-            <input
+            <SubHeader>Image:</SubHeader>
+            <Input type='text' value={this.state.image} onChange={this.onImageChange}></Input>
+            <SubHeader>Breed:</SubHeader>
+            <Input type='text' value={this.state.breed} onChange={this.onBreedChange}></Input>
+
+            <SubHeader>Description:</SubHeader>
+            <Input type='text' value={this.state.description} onChange={this.onDescriptionChange}></Input>
+            <SubHeader>History:</SubHeader>
+            <Input type='text' value={this.state.history} onChange={this.onHistoryChange}></Input>
+            <SubHeader>Color:</SubHeader>
+            <Input type='text' value={this.state.color} onChange={this.onColorChange}></Input>
+            <SubHeader>Temperament:</SubHeader>
+            <Input type='text' value={this.state.temperament} onChange={this.onTemperamentChange}></Input>
+            <SubHeader>Trainability:</SubHeader>
+            <Input
               type='number'
               min='0'
               max='100'
               value={this.state.trainability}
               onChange={this.onTrainabilityChange}
-            ></input>
-            <p>Barking:</p>
-            <input type='text' value={this.state.barking} onChange={this.onBarkingChange}></input>
+            ></Input>
+            <SubHeader>Barking:</SubHeader>
+            <Input type='text' value={this.state.barking} onChange={this.onBarkingChange}></Input>
+
+            <SubContainer>
+              <div>
+                <Header>Adaptability</Header>
+                <SubHeader>Apartment</SubHeader>
+                <Input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.apartment}
+                  onChange={this.onApartmentChange}
+                ></Input>
+                <SubHeader>Owners</SubHeader>
+                <Input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.owners}
+                  onChange={this.onOwnersChange}
+                ></Input>
+                <SubHeader>Alone</SubHeader>
+                <Input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.alone}
+                  onChange={this.onAloneChange}
+                ></Input>
+                <SubHeader>Weather</SubHeader>
+                <Input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.apartmentweather}
+                  onChange={this.onWeatherChange}
+                ></Input>
+                <SubHeader>Friendly</SubHeader>
+                <Input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.adaptability.friendly}
+                  onChange={this.onFriendlyChange}
+                ></Input>
+              </div>
+              <div>
+                <Header>Exercise</Header>
+                <SubHeader>Energy</SubHeader>
+                <Input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.exercise.energy}
+                  onChange={this.onEnergyChange}
+                ></Input>
+                <SubHeader>Exercise</SubHeader>
+                <Input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.exercise.exercise}
+                  onChange={this.onExerciseChange}
+                ></Input>
+                <SubHeader>Playfylness</SubHeader>
+                <Input
+                  type='number'
+                  min='0'
+                  max='100'
+                  value={this.state.exercise.playfulness}
+                  onChange={this.onPlayfulnessChange}
+                ></Input>
+              </div>
+            </SubContainer>
             <br></br>
-            <button type='submit' onClick={this.onBreedSubmit}>
+            <Button type='submit' onClick={this.onBreedSubmit}>
               Submit
-            </button>
+            </Button>
           </form>
         </div>
-      </div>
+      </BreedContainer>
     )
   }
 }

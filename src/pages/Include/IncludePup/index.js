@@ -3,7 +3,40 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 const PupContainer = styled.div`
-  background-color: pink;
+  background-color: beige;
+  width: 40%;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 535px;
+  border-radius: 30px;
+`
+const Header = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 20px;
+`
+const SubHeader = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+`
+const Input = styled.input`
+  width: 60%;
+  height: 20px;
+  padding-left: 10px;
+  text-align: center;
+  border-radius: 10px;
+`
+const Button = styled.button`
+  background-color: green;
+  height: 35px;
+  width: 100%
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  border-radius: 20px;
+  margin-top: 20px
 `
 
 class IncludePup extends Component {
@@ -71,14 +104,14 @@ class IncludePup extends Component {
   render() {
     return (
       <PupContainer>
-        <p>Include a new available pup</p>
+        <Header>Include a new available pup!</Header>
         <div>
           <form>
-            <p>Image:</p>
-            <input type='text' value={this.state.image} onChange={this.onImageChange}></input>
-            <p>Name:</p>
-            <input type='text' value={this.state.name} onChange={this.onNameChange}></input>
-            <p>Type:</p>
+            <SubHeader>Image:</SubHeader>
+            <Input type='text' value={this.state.image} onChange={this.onImageChange}></Input>
+            <SubHeader>Name:</SubHeader>
+            <Input type='text' value={this.state.name} onChange={this.onNameChange}></Input>
+            <SubHeader>Type:</SubHeader>
             <input
               type='radio'
               name='animalType'
@@ -96,9 +129,9 @@ class IncludePup extends Component {
               onChange={this.onTypeChange}
             />{' '}
             Cat
-            <p>Breed:</p>
-            <input type='text' name='breed' value={this.state.breed} onChange={this.onBreedChange}></input>
-            <p>Gender:</p>
+            <SubHeader>Breed:</SubHeader>
+            <Input type='text' name='breed' value={this.state.breed} onChange={this.onBreedChange}></Input>
+            <SubHeader>Gender:</SubHeader>
             <input
               type='radio'
               name='gender'
@@ -117,9 +150,9 @@ class IncludePup extends Component {
             />{' '}
             Female
             <br></br>
-            <button type='submit' onClick={this.onPupSubmit}>
+            <Button type='submit' onClick={this.onPupSubmit}>
               Submit
-            </button>
+            </Button>
           </form>
         </div>
       </PupContainer>
